@@ -1,0 +1,210 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Fórum Hub
+meta:
+  id: wrk_c66411a810a744318fd3bfe37baa5837
+  created: 1773020355609
+  modified: 1773020355609
+  description: ""
+collection:
+  - url: http://localhost:8080/login
+    name: Login
+    meta:
+      id: req_997398f9b24f481db91e3a43bc17624c
+      created: 1773020368552
+      modified: 1773087685081
+      isPrivate: false
+      description: ""
+      sortKey: -1773020368552
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "login": "teste@forum.com",
+          "senha": "123456"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/topicos
+    name: Listar Tópicos
+    meta:
+      id: req_9f8a97a0c29746c8af4f06d0005e7d47
+      created: 1773020531991
+      modified: 1773088223810
+      isPrivate: false
+      description: ""
+      sortKey: -1773020531991
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/topicos
+    name: Criar Tópico
+    meta:
+      id: req_b9b2380669994cbfa7ecd6826f76d033
+      created: 1773088291717
+      modified: 1773088383543
+      isPrivate: false
+      description: ""
+      sortKey: -1773088291717
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "titulo": "Dúvida sobre Spring Boot 3",
+          "mensagem": "Como faço para configurar o Spring Security corretamente?",
+          "autor": "Ana Flávia",
+          "curso": "Java e Spring Boot"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/topicos/1
+    name: Detalhar Tópico
+    meta:
+      id: req_7801880eea414dc49b70ea986e35ee6a
+      created: 1773088561558
+      modified: 1773088607536
+      isPrivate: false
+      description: ""
+      sortKey: -1773088561558
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/topicos
+    name: Atualizar Tópico
+    meta:
+      id: req_fc873ae43bf14ea09948bd43409639ba
+      created: 1773088641039
+      modified: 1773088688236
+      isPrivate: false
+      description: ""
+      sortKey: -1773088641039
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "id": 1,
+          "titulo": "TÍTULO ATUALIZADO PELO INSOMNIA",
+          "mensagem": "Mudei o texto da mensagem também!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/topicos/1
+    name: Excluir Tópico
+    meta:
+      id: req_22df76e9538540a19ec7c26ec6a0060f
+      created: 1773088717212
+      modified: 1773088750245
+      isPrivate: false
+      description: ""
+      sortKey: -1773088717212
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_e42f5bb56b2dba826b9061d86b3eabce04c6b647
+    created: 1773020355641
+    modified: 1773020355641
+environments:
+  name: Base Environment
+  meta:
+    id: env_e42f5bb56b2dba826b9061d86b3eabce04c6b647
+    created: 1773020355635
+    modified: 1773088034557
+    isPrivate: false
+  data:
+    base_url: http://localhost:8080
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgRm9ydW0gSHViIiwic3ViIjoidGVzdGVAZm9ydW0uY29tIiwiZXhwIjoxNzczMDk0ODk4fQ.C_5eb1p-0rHN9XqT2m6CBBSHzqsklCEkv6zKPQXU8Xo
