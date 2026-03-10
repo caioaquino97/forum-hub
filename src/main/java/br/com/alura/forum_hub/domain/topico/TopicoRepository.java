@@ -1,0 +1,11 @@
+package br.com.alura.forum_hub.domain.topico;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface TopicoRepository extends JpaRepository<Topico, Long> {
+
+    // Essa linha permite verificar se já existe título e mensagem iguais
+    boolean existsByTituloAndMensagem(String titulo, String mensagem);
+}
